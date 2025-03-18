@@ -4,6 +4,12 @@ A REST API project built with Express.js running on the Bun JavaScript runtime.
 
 ## Getting Started
 
+To install Bun:
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
 To install dependencies:
 
 ```bash
