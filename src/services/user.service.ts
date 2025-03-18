@@ -1,11 +1,12 @@
-import User from "../models/user.model";
-
+import * as UserRepository from "../repositories/user.repository";
 const getAllUsers = async () => {
-  return await User.find();
+  const result = await UserRepository.getAllUsers();
+  return result;
 };
 
 const createUser = async (data: { name: string; email: string }) => {
-  return await User.create(data);
+  const result = await UserRepository.createUser(data);
+  return result;
 };
 
 export default { getAllUsers, createUser };
