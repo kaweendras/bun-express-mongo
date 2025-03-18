@@ -1,6 +1,10 @@
-# Bun Express API
+# 🍥 Bun Express API
 
 A REST API project built with Express.js running on the Bun JavaScript runtime.
+
+## ⚠️ Disclaimer
+
+This project is only for learning/testing purposes and should not be used in production environments.
 
 ## Getting Started
 
