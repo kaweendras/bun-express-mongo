@@ -13,4 +13,25 @@ const createUser = async (data: { name: string; email: string }) => {
   return result;
 };
 
-export default { getAllUsers, createUser };
+const deleteUser = async (userId: string) => {
+  //validate user id
+  if (!userId) {
+    return null;
+  }
+  const result = await UserRepository.deleteUser(userId);
+  return result;
+};
+
+const updateUser = async (
+  userId: string,
+  data: { name: string; email: string }
+) => {
+  //validate user id
+  if (!userId) {
+    return null;
+  }
+  const result = await UserRepository.updateUser(userId, data);
+  return result;
+};
+
+export default { getAllUsers, createUser, updateUser, deleteUser };
