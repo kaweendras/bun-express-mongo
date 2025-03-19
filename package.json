@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "bun run src/index.ts"
+    "dev": "bun run src/index.ts --watch"
   },
   "dependencies": {
     "cors": "^2.8.5",
