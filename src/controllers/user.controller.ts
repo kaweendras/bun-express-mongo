@@ -30,4 +30,36 @@ const createUser = async (req: Request, res: Response) => {
   }
 };
 
-export default { getUsers, createUser };
+const updateUser = async (req: Request, res: Response) => {
+  try {
+    const { userId } = req.params;
+    const updatedUser = await UserService.updateUser(userId, req.body);
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json(updatedUser);
+  } catch (error: any) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
+  }
+};
+
+const deleteUser = async (req: Request, res: Response) => {
+  try {
+    const { userId } = req.params;
+    const deletedUser = await UserService.deleteUser(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json(deletedUser);
+  } catch (error: any) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
+  }
+};
+
+export default { getUsers, createUser, deleteUser, updateUser };
