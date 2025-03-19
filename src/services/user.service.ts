@@ -5,6 +5,10 @@ const getAllUsers = async () => {
 };
 
 const createUser = async (data: { name: string; email: string }) => {
+  //validate data
+  if (!data.name || !data.email) {
+    return null;
+  }
   const result = await UserRepository.createUser(data);
   return result;
 };
