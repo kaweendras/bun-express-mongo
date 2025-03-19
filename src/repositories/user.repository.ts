@@ -23,4 +23,25 @@ const createUser = async (data: { name: string; email: string }) => {
   }
 };
 
-export { getAllUsers, createUser };
+const deleteUser = async (userId: string) => {
+  try {
+    return await User.deleteOne({ userId });
+  } catch (error: any) {
+    console.error("Error deleting user:", error.message);
+    throw new Error(error.message || "Could not delete user");
+  }
+};
+
+const updateUser = async (
+  userId: string,
+  data: { name: string; email: string }
+) => {
+  try {
+    return await User.updateOne({ userId }, data);
+  } catch (error: any) {
+    console.error("Error updating user:", error.message);
+    throw new Error(error.message || "Could not update user");
+  }
+};
+
+export { getAllUsers, createUser, deleteUser, updateUser };
